@@ -84,9 +84,9 @@ jobs:
     - name: Add Locked OpenClash & Passwall
       working-directory: /builder/immortalwrt	
       run: |
-        # ======== 编译 OpenClash 锁定版（v0.47.111）=========   
-        #锁定 OpenClash 源码日期：2026-07-04
-        sed -i '1i src-git openclash https://github.com/vernesong/OpenClash.git^bc4d118c2950f7753c2206e2e18515230b570491' ./feeds.conf.default
+        # ======== 编译 OpenClash 锁定版（v0.47.110）=========   
+        #锁定 OpenClash 源码日期：2026-06-29
+        sed -i '1i src-git openclash https://github.com/vernesong/OpenClash.git^23896d2662a7d49fa870d37c5cda4b3247a35ae4' ./feeds.conf.default
 
         # ======== 编译 passwall 锁定版（26.7.1-1）=========                
         #锁定 passwall 的luci 和 packages 源码日期：2026-07-01

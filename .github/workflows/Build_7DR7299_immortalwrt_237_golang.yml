@@ -166,8 +166,8 @@ jobs:
         # 追加你要的插件配置，打开 feeds.conf.default文件，再打开luci仓库，选择“openwrt-24.10”分支，找到“applications”查询插件
         cat >> /builder/openwrt/.config <<EOF
         CONFIG_TARGET_mediatek=y
-        CONFIG_TARGET_mediatek_filogic=y
-        CONFIG_TARGET_mediatek_filogic_DEVICE_xiaomi_redmi-router-ax6000-110m=y
+        CONFIG_TARGET_mediatek_filogic_a73=y
+        CONFIG_TARGET_mediatek_filogic_a73_DEVICE_tplink_tl-7dr7299-v1=y
         CONFIG_PACKAGE_luci-app-autoreboot=y
         CONFIG_PACKAGE_luci-app-msd_lite=y
         CONFIG_PACKAGE_luci-app-openclash=y

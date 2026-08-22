@@ -176,5 +176,5 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v7
       with:
-        name: x86_EFI
+        name: x86_EFI_LEDE
         path: /builder/openwrt/bin

@@ -159,7 +159,7 @@ jobs:
                 
     - name: Configuration Customization - Build_7DR7299_immortalwrt_237_golang 
       run: |
-        # 在升级的分支，找到“Quickstart”下方：5. 看到 "# MT7986" 配置文件命令：cp -f defconfig/mt7988_mt7992.config .config 可确认该分支包含 红米AX6000官方原厂闭源
+        # 在升级的分支，找到“Quickstart”下方：5. 看到 "# MT7986" 配置文件命令：cp -f defconfig/mt7988_mt7992.config .config 可确认该分支包含 TPLink-7DR7299 官方原厂闭源
         # 将配置文件从 defconfig 目录复制到根目录并重命名 .config，云编译的目录和官方目录不同，所以命令中必须修改路径
         cp -f /builder/openwrt/defconfig/mt7988_mt7992.config /builder/openwrt/.config
         

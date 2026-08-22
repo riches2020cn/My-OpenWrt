@@ -151,5 +151,5 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v7
       with:
-        name: x86_EFI_immortalwrt
+        name: block_x86_EFI_immortalwrt
         path: /builder/openwrt/bin

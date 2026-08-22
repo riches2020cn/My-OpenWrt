@@ -137,5 +137,5 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v7
       with:
-        name: ax6000
+        name: block_ax6000_LEDE_110m
         path: /builder/openwrt/bin

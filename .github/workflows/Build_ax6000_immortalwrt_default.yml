@@ -174,5 +174,5 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v7
       with:
-        name: ax6000_immortalwrt
+        name: ax6000_immortalwrt_default
         path: /builder/openwrt/bin

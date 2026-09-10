@@ -111,7 +111,7 @@ jobs:
         ./scripts/feeds update -a
 
        #=======编入第三方“msd_lite”插件，解决 IPTV 卡顿=======
-    - name: 编入第三方“msd_lite”插件
+    - name: 编入第三方 msd_lite 插件
       working-directory: /builder/openwrt
       run: |
         rm -rf  feeds/packages/net/msd_lite

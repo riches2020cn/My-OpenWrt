@@ -6,7 +6,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #=================================================
 
-name: Build_7DR7299_immortalwrt_237_golang
+name: Build_7DR7299_immortalwrt_237_golang_msd_lite
 
 # Add a button to trigger the workflow
 on: 
@@ -166,7 +166,7 @@ jobs:
         # 删除临时目录
     #    rm -rf /tmp/OpenClash
                 
-    - name: Configuration Customization - Build_7DR7299_immortalwrt_237_golang 
+    - name: Configuration Customization - Build_7DR7299_immortalwrt_237_golang_msd_lite 
       run: |
         # 在升级的分支，找到“Quickstart”下方：5. 看到 "# MT7986" 配置文件命令：cp -f defconfig/mt7988_mt7992.config .config 可确认该分支包含 TPLink-7DR7299 官方原厂闭源
         # 将配置文件从 defconfig 目录复制到根目录并重命名 .config，云编译的目录和官方目录不同，所以命令中必须修改路径

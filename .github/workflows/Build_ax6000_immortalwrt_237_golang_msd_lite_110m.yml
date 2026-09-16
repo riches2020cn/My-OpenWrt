@@ -175,8 +175,8 @@ jobs:
     - name: 编入第三方 msd_lite 插件
       working-directory: /builder/openwrt
       run: |
-        rm -rf  feeds/packages/net/msd_lite
-        rm -rf  feeds/luci/applications/luci-app-msd_lite
+        rm -rf feeds/packages/net/msd_lite
+        rm -rf feeds/luci/applications/luci-app-msd_lite
         git clone https://github.com/ximiTech/msd_lite.git package/msd_lite
         git clone https://github.com/ximiTech/luci-app-msd_lite.git package/luci-app-msd_lite
 
@@ -225,7 +225,7 @@ jobs:
     #    mv /tmp/OpenClash/luci-app-openclash package/
 
         # 删除临时目录
-    #    rm -rf /tmp/OpenClash
+    #    rm -rf /tmp/OpenClash && rm -rf tmp
                 
     - name: Configuration Customization - Build_ax6000_immortalwrt_237_golang_msd_lite_110m 
       run: |

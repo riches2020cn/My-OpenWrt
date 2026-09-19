@@ -88,7 +88,7 @@ jobs:
         # 打开官网：https://github.com/hanwckf/immortalwrt-mt798x
         # 在升级的分支，找到“Quickstart”下方：5. 看到 "# MT7986" 配置文件命令：cp -f defconfig/mt7986-ax6000.config .config 可确认该分支包含 红米AX6000官方原厂闭源
         # 获取克隆命令：找到“Quickstart”下方：1. 克隆命令中包含“https://github.....”，替换上方变量“REPO_URL: https://github.....”，再替换下方的 openwrt-21.02 分支名称
-        git clone --depth 1 -b openwrt-21.02 $REPO_URL /builder/openwrt || { echo 'Git clone failed!'; exit 1; }
+        git clone --depth 1 -b openwrt-21.02 "$REPO_URL" /builder/openwrt || { echo 'Git clone failed!'; exit 1; }
                     
     - name: Update feeds
       working-directory: /builder/openwrt

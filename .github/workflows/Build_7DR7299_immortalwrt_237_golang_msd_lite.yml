@@ -84,7 +84,7 @@ jobs:
         REPO_URL: https://github.com/padavanonly/immortalwrt-mt798x-6.6
       run: |
         # 拉取 237大佬 mt798x-mt799x-6.6-mtwifi 分支
-        git clone -b mt798x-mt799x-6.6-mtwifi --single-branch --filter=blob:none $REPO_URL /builder/openwrt || { echo 'Git clone failed!'; exit 1; }
+        git clone -b mt798x-mt799x-6.6-mtwifi --single-branch --filter=blob:none "$REPO_URL" /builder/openwrt || { echo 'Git clone failed!'; exit 1; }
         
         # ======== 编译下方插件，请先去掉注释 ======== 
         cd /builder/openwrt

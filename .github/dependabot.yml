@@ -3,6 +3,10 @@
 # 监控脚本中的官方“actions”：actions/upload-artifact@v...，用来把编译好的固件上传到 Github 服务器上，官方地址：https://github.com/actions/upload-artifact
 # 不修改，不升级，跳过脚本中的第三方磁盘空间扩容"actions"：uses: easimon/maximize-build-space@master，使用“@master”，会自动使用最新版本，不需要升级。地址：https://github.com/easimon/maximize-build-space
 
+on:
+  # 允许在 GitHub 网页界面手动点击按钮触发
+  workflow_dispatch:
+  
 version: 2
 updates:
   - package-ecosystem: "github-actions"

@@ -229,8 +229,8 @@ jobs:
         # 删除临时目录
         rm -rf tmp
 
-       #======= 解决 Passwall 的 Geoview 报错问题，修改 passwall-packages 文件 & 配置 daed（安装 Passwall 之后）=======
-    - name: 修改 passwall-packages & daed 目录下所有 Makefile 文件中 golang 路径指向 golang1.27
+       #======= 解决 Passwall 的 Geoview 报错问题，修改 passwall-packages 文件（安装 Passwall 之后）=======
+    - name: 修改 passwall-packages 目录下所有 Makefile 文件中 golang 路径指向 golang1.27
       working-directory: /builder/openwrt
       run: |         
         # 1. 修改 package/passwall-packages 目录下所有 Makefile 路径指向 golang1.27

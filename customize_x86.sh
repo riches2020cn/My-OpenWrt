@@ -9,15 +9,18 @@
 #1. Modify default IP
 sed -i 's/192.168.1.1/192.168.9.1/g' /builder/openwrt/package/base-files/files/bin/config_generate
 
-#2. Clear the login password
+#2. LEDE 更改主机名 RT-AX88U
+sed -i 's/LEDE/RT-AX88U/g' /builder/openwrt/package/base-files/files/bin/config_generate
+
+#3. Clear the login password
 #sed -i -E 's|^root:[^:]*:|root::|' /builder/openwrt/package/base-files/files/etc/shadow
 
-#3. 修改默认皮肤
+#4. 修改默认皮肤
 #sed -i 's/+luci-theme-bootstrap/+luci-theme-argon/g' /builder/openwrt/feeds/luci/collections/luci/Makefile
 
-#4. 修改 x86 内核版本
+#5. 修改 x86 内核版本
 #sed -i 's/KERNEL_PATCHVER:=6.1/KERNEL_PATCHVER:=5.15/g' /builder/openwrt/target/linux/x86/Makefile
 
-#5. Replace with JerryKuKu’s Argon
+#6. Replace with JerryKuKu’s Argon
 #rm /builder/openwrt/package/lean/luci-theme-argon -rf
 

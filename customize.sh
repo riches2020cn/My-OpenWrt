@@ -10,7 +10,7 @@
 sed -i 's/192.168.1.1/192.168.2.1/g' /builder/openwrt/package/base-files/files/bin/config_generate
 
 # 更改主机名：Redmi-AX6000
-sed -i 's/ImmortalWrt/Redmi-AX6000/g' /builder/openwrt/package/base-files/files/bin/config_generate
+sed -i 's/LEDE/Redmi-AX6000/g' /builder/openwrt/package/base-files/files/bin/config_generate
 
 #3. Clear the login password
 #sed -i -E 's|^root:[^:]*:|root::|' /builder/openwrt/package/base-files/files/etc/shadow

@@ -307,9 +307,16 @@ jobs:
 
     - name: Build firmware
       working-directory: /builder/openwrt
+      # 编译超过 5 小时，自动退出编译，防止后台静默卡死
+      timeout-minutes: 300
+      env:
+        # 禁用 Git 终端交互提示，遇到需要输入密码或确认时，自动退出编译，防止后台静默卡死
+        GIT_TERMINAL_PROMPT: 0
+        # 禁用 Git 隐式文件锁，避免在多进程/并发 Git 操作时因锁争用导致的异常
+        GIT_OPTIONAL_LOCKS: 0
       run: |
         echo -e "$(nproc) thread build."
-        # 先尝试多线程全速编译，如果失败（返回非 0 状态码），则触发单线程编译，并打印最详细的 V=s 日志
+        # 先尝试多线程全速编译，如果失败（返回非 0 状态码），则触发单线程编译，重新编译并输出详细日志
         make -j$(nproc) || make -j1 V=s
 
     - name: Check Space

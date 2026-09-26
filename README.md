@@ -13,7 +13,7 @@
 
 ## 📖 脚本说明
 
-1. 名称包含“237”：闭源驱动（推荐）
+- 名称包含“237”：闭源驱动（推荐）
 - 名称包含“Orign”：源码自带 OpenClash、Passwall
 - 名称包含“golang”：升级“golang1.27”，编译 Passwall 最新版
 - 名称包含“msd_lite”：第三方“msd_lite”

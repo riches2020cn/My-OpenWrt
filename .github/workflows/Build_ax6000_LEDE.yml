@@ -168,7 +168,7 @@ jobs:
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE /builder/openwrt/.config
         chmod +x ./customize.sh && ./customize.sh
-        cd /builder/openwrt && make defconfig
+        cd /builder/openwrt && rm -rf tmp && make defconfig
         
     - name: Download package
       working-directory: /builder/openwrt

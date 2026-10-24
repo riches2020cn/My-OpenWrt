@@ -173,6 +173,7 @@ jobs:
         rm -rf /tmp/golang-daed-src
 
         echo "=== 3. 强刷新并安装 golang1.27 工具包 ==="
+        ./scripts/feeds update -f packages
         ./scripts/feeds install -p packages -f golang1.27
 
         echo "=== 4. 动态重定向代理组件的 Golang 编译依赖 (如 daed / passwall 等) ==="

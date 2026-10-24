@@ -188,8 +188,6 @@ jobs:
           fi
         done
 
-        # 删除旧版 golang
-        rm -rf feeds/packages/lang/golang
         # 删除临时目录
         rm -rf tmp
         

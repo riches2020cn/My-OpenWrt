@@ -117,7 +117,7 @@ jobs:
     - name: 升级 Passwall 工具链为 golang1.27
       working-directory: /builder/openwrt
       run: |
-        # 1. 直接将本地仓库根目录下的 golang_update 文件夹内的所有文件复制到 feeds/golang1.27 目录下
+        # 1. 直接将本地仓库根目录下的 golang_update 目录中的所有文件复制到 feeds/golang1.27 文件夹内
         rm -rf feeds/packages/lang/golang1.27        
         mkdir -p feeds/packages/lang/golang1.27
         cp -rf "$GITHUB_WORKSPACE/golang_update/." feeds/packages/lang/golang1.27/

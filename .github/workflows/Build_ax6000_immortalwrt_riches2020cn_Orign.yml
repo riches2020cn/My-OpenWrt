@@ -158,8 +158,17 @@ jobs:
         GIT_OPTIONAL_LOCKS: 0
       run: |
         echo -e "$(nproc) thread build."
-        # 先尝试多线程全速编译，如果失败（返回非 0 状态码），则触发单线程编译，重新编译并输出详细日志
-        make -j$(nproc) || make -j1 V=s
+
+        # 首次多线程编译，日志保存到文件，不大量输出到网页
+        make -j$(nproc) > build.log 2>&1
+        BUILD_STATUS=$?
+
+        # 多线程失败后，自动切换单线程详细日志编译
+        if [ "$BUILD_STATUS" -ne 0 ]; then
+          echo "===== Multi-thread build failed, retrying ====="
+          tail -100 build.log
+          make -j1 V=s
+        fi
 
     - name: Check Space
       run: |

@@ -33,7 +33,7 @@ jobs:
       with:
         root-reserve-mb: 2048
         temp-reserve-mb: 512
-        swap-size-mb: 2048
+        swap-size-mb: 4096
         remove-dotnet: 'true'
         remove-android: 'true'
         remove-haskell: 'true'
@@ -81,18 +81,6 @@ jobs:
     - name: Check Space
       run: |
         df -h
-
-    - name: Set up Swap Space
-      run: |
-        echo "=== Before Swap ==="
-        free -h
-        # 增加 4GB 虚拟内存，防止内存耗尽导致 Runner 崩溃失联
-        sudo fallocate -l 4G /swapfile
-        sudo chmod 600 /swapfile
-        sudo mkswap /swapfile
-        sudo swapon /swapfile
-        echo "=== After Swap ==="
-        free -h
         
     - name: Clone source code
       env:

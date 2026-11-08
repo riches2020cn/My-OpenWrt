@@ -157,13 +157,9 @@ jobs:
         # 禁用 Git 隐式文件锁，避免在多进程/并发 Git 操作时因锁争用导致的异常
         GIT_OPTIONAL_LOCKS: 0
       run: |
-        echo "=== CPU Info ==="
-        nproc
-        
-        # 稳妥起见，限制为 2 线程编译（避免 2 核机器过载失联）
-        # 如果依然希望尝试自动降级，可以使用下面更稳妥的写法：
-        make -j2 V=s || {
-          echo "=== 编译失败，切换成单线程和最高级别详细日志级别重试。 ==="
+        echo "$(nproc) thread build."
+        make -j$(nproc) V=s || {
+          echo "=== 多线程编译失败，切换单线程 + 详细日志重试 ==="
           make -j1 V=sc
         }
 

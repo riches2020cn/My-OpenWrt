@@ -82,6 +82,18 @@ jobs:
       run: |
         df -h
 
+    - name: Set up Swap Space
+      run: |
+        echo "=== Before Swap ==="
+        free -h
+        # 增加 4GB 虚拟内存，防止内存耗尽导致 Runner 崩溃失联
+        sudo fallocate -l 4G /swapfile
+        sudo chmod 600 /swapfile
+        sudo mkswap /swapfile
+        sudo swapon /swapfile
+        echo "=== After Swap ==="
+        free -h
+        
     - name: Clone source code
       env:
         REPO_URL: https://github.com/riches2020cn/immortalwrt-mt798x-6.6
@@ -157,9 +169,15 @@ jobs:
         # 禁用 Git 隐式文件锁，避免在多进程/并发 Git 操作时因锁争用导致的异常
         GIT_OPTIONAL_LOCKS: 0
       run: |
-        echo -e "$(nproc) thread build."
-        # 先尝试多线程全速编译，如果失败（返回非 0 状态码），则触发单线程编译，重新编译并输出详细日志
-        make -j$(nproc) || make -j1 V=s
+        echo "=== CPU Info ==="
+        nproc
+        
+        # 稳妥起见，限制为 2 线程编译（避免 2 核机器过载失联）
+        # 如果依然希望尝试自动降级，可以使用下面更稳妥的写法：
+        make -j2 V=s || {
+          echo "=== 编译失败，切换成单线程和最高级别详细日志级别重试。 ==="
+          make -j1 V=sc
+        }
 
     - name: Check Space
       run: |
